@@ -1,7 +1,3 @@
-Below is an example GitHub README in Markdown format, converted from your PDF content:
-
----
-
 # TempoInfiniteRun
 
 **Volodymyr Stefaniuik**
@@ -49,4 +45,4 @@ Collect coins as you run. If you hit an obstacle, the game is over, and you can 
 - The `LevelGenerator` script generates levels.
 - Level configuration values are exposed via the `LevelConfig` ScriptableObject.
 
-- ![image](https://github.com/user-attachments/assets/02b93afd-aa13-447f-af23-5c99af535603)
+![image](https://github.com/user-attachments/assets/02b93afd-aa13-447f-af23-5c99af535603)
