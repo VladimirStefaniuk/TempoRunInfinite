@@ -18,9 +18,8 @@ namespace Utils
     {
         public static PoolManager Instance { get; private set; }
 
-        private Dictionary<string, ObjectPool> pools = new (); 
-        
-        private Dictionary<GameObject, ObjectPool> PoolLookup = new ();
+        private Dictionary<string, ObjectPool> _pools = new ();  
+        private Dictionary<GameObject, ObjectPool> _poolLookup = new ();
 
         public List<PoolConfig> PoolConfigs;
         
@@ -76,7 +75,7 @@ namespace Utils
                 
                 GameObject prefab = handle.Result;
                 var pool = new ObjectPool(prefab, poolParent);
-                pools[assetReference.AssetGUID] = pool;
+                _pools[assetReference.AssetGUID] = pool;
                 await pool.InitializeAsync(size);
             }
             else
@@ -98,10 +97,10 @@ namespace Utils
                 return null;
             }
             
-            if (pools.ContainsKey(key))
+            if (_pools.ContainsKey(key))
             {
-                var go = pools[key].Get();
-                PoolLookup[go] = pools[key];
+                var go = _pools[key].Get();
+                _poolLookup[go] = _pools[key];
                 return go;
             }
 
@@ -111,13 +110,13 @@ namespace Utils
  
         public void Recycle(GameObject go)
         {
-            if (!PoolLookup.ContainsKey(go))
+            if (!_poolLookup.ContainsKey(go))
             {
                 // If no pool exists, destroy it to prevent memory leaks.
                 Destroy(go);
                 Debug.LogError($"Recycle called for {go.name} but object is not registered! Properly register with PoolManager");
             } 
-            PoolLookup[go].Recycle(go);  
+            _poolLookup[go].Recycle(go);  
         }
     }
 }

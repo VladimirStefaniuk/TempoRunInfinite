@@ -26,16 +26,16 @@ namespace Utils
             }
         }
 
-        private GameObject Add()
+        private void Add()
         {
-            GameObject go = Object.Instantiate(_prefab, _parent); 
+            var go = Object.Instantiate(_prefab, _parent); 
             go.SetActive(false); 
+            
             // Enqueue the object inside a lock to prevent concurrent modifications.
             lock (_syncLock)
             {
                 _pool.Enqueue(go);
-            }
-            return go;
+            } 
         }
 
         public GameObject Get()

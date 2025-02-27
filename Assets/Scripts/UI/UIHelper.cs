@@ -4,14 +4,14 @@ namespace UI
 {
     public static class UIHelper
     {
-        public static string FormatDistance(float distance)
+        public static string FormatDistanceWithLeadingZeroes(float distance)
         {
-            return $"Distance {(int)Math.Ceiling(distance):D6}";
+            return $"Distance {distance:0}";
         }
-
-        public static string FormatCoins(int coins)
+    
+        public static string FormatCoinsWithLeadingZeroes(int coins)
         {
-            return $"Coins {coins:D6}";
+            return $"Coins {coins}";
         } 
     }
 }

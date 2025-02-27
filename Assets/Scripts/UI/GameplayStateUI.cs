@@ -9,8 +9,8 @@ namespace UI
         [SerializeField] private TMP_Text coinsText;
         public void OnEnable()
         {
-            distanceText.text = UIHelper.FormatDistance(GameManager.Instance.DistanceRun);           
-            coinsText.text = UIHelper.FormatCoins(GameManager.Instance.CoinsCollected);       
+            distanceText.text = UIHelper.FormatDistanceWithLeadingZeroes(GameManager.Instance.DistanceRun);           
+            coinsText.text = UIHelper.FormatCoinsWithLeadingZeroes(GameManager.Instance.CoinsCollected);       
             
             GameManager.Instance.OnDistanceUpdated += UpdateDistanceUI;
             GameManager.Instance.OnCoinsUpdated += UpdateCoinsUI;
@@ -24,12 +24,12 @@ namespace UI
         
         private void UpdateDistanceUI(float distance)
         {
-            distanceText.text = UIHelper.FormatDistance(distance);    
+            distanceText.text = UIHelper.FormatDistanceWithLeadingZeroes(distance);    
         }
 
         private void UpdateCoinsUI(int coins)
         {
-            coinsText.text = UIHelper.FormatCoins(coins);    
+            coinsText.text = UIHelper.FormatCoinsWithLeadingZeroes(coins);    
         } 
     }
 }

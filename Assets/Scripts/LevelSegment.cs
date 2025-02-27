@@ -3,21 +3,22 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class LevelSegment : MonoBehaviour
 {
+    [Header("Connect points")]
     [SerializeField] private Transform _entrance;
     [SerializeField] private Transform _exit;
-    
-    public Transform Entrance => _entrance;
-    public Transform Exit => _exit;
-
+   
     /// if is true, then LevelGenerator won't place random obstacles on the segment
     [Header("Obstacles")] 
     public bool isManuallyPrebuild = false;
     [Range(0, 1)] public float chanceOfCoins = 0.5f;
     [Range(0, 1)] public float chanceOfObstacle = 0.2f;
+   
+    public Transform Entrance => _entrance;
+    public Transform Exit => _exit;
     
     private LevelGenerator _injectedParentLevelGenerator;
 
-    public void Init(LevelGenerator levelGenerator) // TODO: this about this approch how to improve
+    public void Init(LevelGenerator levelGenerator)  
     {
         _injectedParentLevelGenerator = levelGenerator;
     }

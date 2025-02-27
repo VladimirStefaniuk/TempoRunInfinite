@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using UI;
 
 public partial class GameManager
 {
@@ -31,7 +32,9 @@ public partial class GameManager
         
         if (previousState == GameState.GameOver)
         {
-            await LevelGenerator.Instance.UnloadAllSegmentsAsync(); 
+            Task showLoadingScreen = UIController.ShowLoadingScreen(0.5f);
+            Task unloadLevel = LevelGenerator.Instance.UnloadAllSegmentsAsync(); 
+            await Task.WhenAll(showLoadingScreen, unloadLevel);
         }
 
         await LevelGenerator.Instance.GenerateTrackFromStartAsync();

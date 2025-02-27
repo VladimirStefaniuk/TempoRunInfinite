@@ -18,7 +18,16 @@
                     "name": "Movement",
                     "type": "Value",
                     "id": "9819861d-fb34-437f-887b-412cae98a2cb",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Swipe",
+                    "type": "Value",
+                    "id": "b7eddbcb-73f4-4b43-8696-d46ca3737f4c",
+                    "expectedControlType": "Delta",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -43,17 +52,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "495179eb-1e02-4fd9-8015-072f7226573c",
-                    "path": "<Touchscreen>/touch*/Press",
-                    "interactions": "MultiTap(tapDelay=0.5)",
-                    "processors": "",
-                    "groups": "Mobile",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -125,37 +123,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "cff1db05-0814-4116-9aff-34b4504cac67",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "35ec424d-00e4-4f51-b630-1ed8335b0537",
+                    "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
+                    "groups": "Mobile",
+                    "action": "Swipe",
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "left",
-                    "id": "98f4eb7c-718e-478d-a31e-7476aecd3138",
-                    "path": "<Touchscreen>/delta/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mobile",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "e4655184-d7fa-4afa-ad73-acb2032fd6ca",
-                    "path": "<Touchscreen>/delta/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mobile",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }

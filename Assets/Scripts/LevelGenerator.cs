@@ -20,14 +20,12 @@ public class LevelGenerator : MonoBehaviour
     
     [SerializeField] private LevelConfig levelConfig;   
     [SerializeField] private PlayerController playerController; 
- 
-    private List<LoadedSegment> _segments; 
-    private bool _isFirstSegmentIgnored;   
-    
+  
     private PoolManager PoolManager => PoolManager.Instance;
 
-    private Task _updateTrackTask = Task.CompletedTask;
-    
+    private List<LoadedSegment> _segments; 
+    private bool _isFirstSegmentIgnored;   
+    private Task _updateTrackTask = Task.CompletedTask; 
     private GameState _currentState;
 
     private void Awake()
@@ -249,9 +247,10 @@ public class LevelGenerator : MonoBehaviour
         _segments.RemoveAt(0);
     }
  
-    // TODO: Missing functionality. Since we always move player in Z direction after a long time,
+    // TODO: Missing functionality.
+    // 1. Since we always move player in Z direction after a long time,
     // z value will become so large that float will start to loose precision
     // the common technique is to "move" track & player at 0, 0, 0, to start Z calculations from 0 again
- 
+    // 2. Implement algo to make sure level always have a path. 
 }
 

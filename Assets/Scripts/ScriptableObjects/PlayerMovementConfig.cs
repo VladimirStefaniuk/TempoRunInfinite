@@ -1,4 +1,5 @@
-using UnityEngine; 
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Configs
 {
@@ -6,15 +7,17 @@ namespace Configs
     public class PlayerMovementConfig : ScriptableObject
     {
         [Header("Running")] 
-        public float runSpeed = 10f;
-        public AnimationCurve runAccelerationCurve;
-        
-        [Header("Jumping")]
+        public float runSpeed = 10f; 
+
+        [Header("Jumping")] 
+        public float jumpSwipeUpThreshold = 0.3f;
         public float jumpHeight = 1f;
+        public float jumpForwardMultiplier = 2f;
         public float jumpDuration = 0.4f;
         
         [Header("Change line")]
-        public float changeLineSpeed = 1f;
-        public float changeLineThreshold = 0.2f;
+        public float changeLineSpeed = 1f; 
+        public float changeLineTimeout = 0.3f;
+        public float inputMovementThreshold = 0.9f;
     }
 }

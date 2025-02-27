@@ -14,38 +14,45 @@ public partial class GameManager : MonoBehaviour
     
     private readonly Queue<GameState> _stateQueue = new Queue<GameState>();
     
-    void Awake()
+    private bool _isProcessingState;
+    
+    private void Awake()
     {
         DontDestroyOnLoad(this);
         Instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         UpdateGameState(GameState.PreLoading);
     }
     
-    public void UpdateGameState(GameState newState)
+    public async void UpdateGameState(GameState newState)
     {
-        _stateQueue.Enqueue(newState);
-        ProcessStateQueue();
+        try
+        {
+            _stateQueue.Enqueue(newState);
+            await ProcessStateQueue();
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
     }
-
-    private bool isProcessingState;
-    
-    private async void ProcessStateQueue()
+ 
+    private async Task ProcessStateQueue()
     { 
-        if (isProcessingState) return; // Prevent reentrancy
-        isProcessingState = true;
+        if (_isProcessingState) return; // Prevent reentrancy
+        _isProcessingState = true;
         while (_stateQueue.Count > 0)
         {
             GameState nextState = _stateQueue.Dequeue();
             await UpdateGameStateAsync(nextState);
         } 
-        isProcessingState = false;
+        _isProcessingState = false;
     }
-    
-    public async Task UpdateGameStateAsync(GameState newState)
+
+    private async Task UpdateGameStateAsync(GameState newState)
     { 
         switch (newState)
         {
@@ -55,7 +62,7 @@ public partial class GameManager : MonoBehaviour
             case GameState.MainMenu:
                 break;
             case GameState.GamePlay:
-                await EnterGamePlayState(previousState: State);
+                await EnterGamePlayState(previousState: State); 
                 break;
             case GameState.GameOver:
                 break;

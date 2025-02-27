@@ -10,8 +10,8 @@ namespace UI
 
         public void OnEnable()
         {
-            distanceText.text = UIHelper.FormatDistance(GameManager.Instance.DistanceRun);           
-            coinsText.text = UIHelper.FormatCoins(GameManager.Instance.CoinsCollected);           
+            distanceText.text = UIHelper.FormatDistanceWithLeadingZeroes(GameManager.Instance.DistanceRun);           
+            coinsText.text = UIHelper.FormatCoinsWithLeadingZeroes(GameManager.Instance.CoinsCollected);           
         } 
     }
 }

@@ -42,6 +42,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f3e6b5dc11334ff9b1e985b6c21d994
+    m_Address: Assets/VisualAssets/Obstacles/Obstacle_2_jump.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cf4e76a412e6470b89914c1746db6a6
+    m_Address: Assets/VisualAssets/LevelSegments/Segment_2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53eb4355a46f1470fbbab4763cd957a8
+    m_Address: Assets/VisualAssets/LevelSegments/Segment_3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e5f0bd14bdfbc459a8970b4dbb9de5cf, type: 2}
   m_SchemaSet:
