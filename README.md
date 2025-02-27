@@ -1,6 +1,6 @@
 # TempoInfiniteRun
 
-**Volodymyr Stefaniuik**
+Project uses Addressables and Unity Input System packages. 
 
 ## How to Play
 
